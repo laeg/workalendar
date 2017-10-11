@@ -12,7 +12,7 @@ from workalendar.usa import (
     Montana, Nebraska, Nevada, NewHampshire, NewJersey, NewMexico, NewYork,
     NorthCarolina, NorthDakota, Ohio, Oklahoma, Oregon, Pennsylvania,
     RhodeIsland, SouthCarolina, SouthDakota, Tennessee, TexasBase, Texas,
-    Utah, Vermont, Virginia, Washington, WestVirginia, Wisconsin, Wyoming
+    Utah, Vermont, Virginia, Washington, WestVirginia, Wisconsin, Wyoming, Neo4jUSA
 )
 
 
@@ -1320,3 +1320,23 @@ class WyomingTest(UnitedStatesTest):
             label,
             "Martin Luther King, Jr. / Wyoming Equality Day"
         )
+
+class Neo4jTest(GenericCalendarTest):
+    cal_class = Neo4jUSA
+
+    def test_year_2017(self):
+        holidays = self.cal.holidays_set(2017)
+
+        print(holidays)
+
+        self.assertIn(date(2017, 1, 1), holidays) # New Year’s Day(Observed)
+        self.assertIn(date(2017, 2, 20), holidays) # President’s Day
+        self.assertIn(date(2017, 5, 29), holidays) # Memorial Day
+        self.assertIn(date(2017, 6, 23), holidays) # Mid-Summer Holiday (Observed)
+        self.assertIn(date(2017, 7, 4), holidays) # Independence Day
+        self.assertIn(date(2017, 9, 4), holidays) # Labor Day
+        self.assertIn(date(2017, 11, 23), holidays) # Thanksgiving Day
+        self.assertIn(date(2017, 11, 24), holidays) # Day After Thanksgiving Day
+        self.assertIn(date(2017, 12, 22), holidays) # Christmas Eve Day
+        self.assertIn(date(2017, 12, 25), holidays) # Christmas Day
+        self.assertIn(date(2017, 12, 29), holidays) # New Year’s Eve Day(Observed)

@@ -56,6 +56,7 @@ from .washington import Washington
 from .west_virginia import WestVirginia
 from .wisconsin import Wisconsin
 from .wyoming import Wyoming
+from .neo4jusa import Neo4jUSA
 
 NONE, NEAREST_WEEKDAY, MONDAY = range(3)
 
@@ -113,4 +114,5 @@ __all__ = [
     WestVirginia,
     Wisconsin,
     Wyoming,
+    Neo4jUSA,
 ]
